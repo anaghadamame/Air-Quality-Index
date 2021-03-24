@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Air Quality Index API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+<body bgcolor="Lightskyblue">  
+
+ <div class="login">
+	<h1 align='center'>Predict Air Quality Index</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <h4 align='center'> Average Temperature (°C)<input type="text" name="T Average Temperature (°C)" placeholder="T"  required="required" /><br></h4>
+         <h4 align='center'>Maximum temperature (°C)<input type="text" name="Tm Maximum temperature (°C)" placeholder="Tmax" required="required" /><br></h4>
+        <h4 align='center'>Minimum temperature (°C)<input type="text" name="Tm Minimum temperature (°C)" placeholder="Tm" required="required" /><br></h4>
+       
+		 <h4 align='center'>Average relative humidity (%)<input type="text" name="H Average relative humidity (%)" placeholder="H" required="required" /><br></h4>
+		
+        <h4 align='center'> Average visibility (Km)<input type="text" name="VV Average visibility (Km)" placeholder="VV" required="required" /><br></h4>
+       
+		 <h4 align='center'>Average wind speed (Km/h)<input type="text" name="V Average wind speed (Km/h)" placeholder="V" required="required" /><br></h4>
+		
+		 <h4 align='center'>Maximum sustained wind speed (Km/h)<input type="text" name="VM Maximum sustained wind speed (Km/h)" placeholder="VM" required="required" /></h4>
+		
+
+       <h4 align='center'> <button type="Check" class="btn btn-primary btn-block btn-large">Predict</button></h4>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
